@@ -5,7 +5,6 @@ let Tree = module.exports = function(){
   this.root = null;
 }
 
-
 Tree.prototype.insert = function(val) {
   let curr = new Node(val);
 
@@ -13,16 +12,15 @@ Tree.prototype.insert = function(val) {
     this.root = curr;
     return curr.val;
   }
+  return insert(this.root, val);
 
-  return _insert(this.root, val);
-
-  function _insert(node, val){
+  function insert(node, val){
     if(val < node.val){
       if (!node.left) {
         node.left = curr;
         return node.left.val;
     }
-    return _insert(node.left, val);
+    return insert(node.left, val);
   }
 
   if(node.val <= val){
@@ -30,7 +28,7 @@ Tree.prototype.insert = function(val) {
       node.right = curr;
       return node.right.val;
     }
-    return _insert(node.right, val);
+    return insert(node.right, val);
     }
   }
 };
@@ -46,5 +44,5 @@ Tree.prototype.delete = function(node, val) {
   }
   let leftTemp = node.left;
   node = node.right;
-  _insert(node, leftTemp);
+  Tree.prototype.insert(node, leftTemp);
 }

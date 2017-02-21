@@ -36,6 +36,7 @@ describe('#remove()', function(){
   it('should remove 20 to the right of 15, the root', function(done){
     bst.insert(15);
     bst.insert(17);
+    bst.insert(4);
     bst.insert(20);
     bst.delete(17);
     expect(bst.root.right.right.val).to.equal(20);
