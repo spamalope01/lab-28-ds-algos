@@ -35,18 +35,16 @@ Tree.prototype.insert = function(val) {
   }
 };
 
-
-
-
-// Tree.prototype.delete = function(node, curr) {
-//   if(!node) return;
-//   if(curr.val < node.val) {
-//     delete(node.left, curr);
-//   }
-//   else if(curr.val > node.val) {
-//     delete(node.right, curr);
-//   }
-//   let leftTemp = node.left;
-//   node = node.right;
-//   insert(node, leftTemp);
-// }
+//REMOVE
+Tree.prototype.delete = function(node, val) {
+  if(!this.root) return;
+  if(val < node.val) {
+    delete(node.left, val);
+  }
+  else if(val > node.val) {
+    delete(node.right, val);
+  }
+  let leftTemp = node.left;
+  node = node.right;
+  _insert(node, leftTemp);
+}
